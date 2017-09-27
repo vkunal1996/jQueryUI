@@ -24,8 +24,10 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 	$(function() {
+            $("#namenotfound").hide();
                
                $("#dialog").dialog({
+                   
                    autoOpen:false,
                    show:{
                        effect:"blind",
@@ -38,16 +40,103 @@
                });
 		
                 $( "#accordion" ).accordion({
-                    collapsible :true
+                    
+                 collpasible:true,
+                 navigation :true
+                    
                 });
+                
+                
                 $("#datepicker").datepicker({
-                   
+                    showOn: "button",
+                    buttonImage: "images/calendar1.png",
+                    buttonImageOnly: true,
+                    buttonText: "Select date"
                 });   
                 
-                
+               
+                 
                 $( "#submitButton" ).on( "click", function() {
                    
-                    $("#dialog").html("<center><table>"+
+                        var flag=0;
+                        var user="";
+                        var pass="";
+                        var father="";
+                        var mother="";
+                        var dob="";
+                        var corr="";
+                        var per="";
+                        var mob="";
+                        var opt="";
+                        var hpass="";
+                        /*if($("#username").val()===""||$("#password").val()===""||$("#fathername").val()===""||$("#mothername").val()===""||("#datepicker").val()===""||("#correspondance").val()===""||("#permanent").val()===""||("#mobile").val()===""||("#options").val()===""||("#hpassword").val()==="")
+                        {
+                            flag=1;
+                        }
+                            if(flag===1)
+                            {
+                                $("#dialog").html("<center>Fileds are Empty </center>");
+                                $("#dialog").dialog("open");
+                            }*/
+                            if($("#username").val()==="")
+                            {
+                               user="Username is Rquired<br>";
+                               flag=1;
+                            }
+                                if($("#password").val()===""||$("#rpassword").val()==="")
+                                {
+                                    pass="Password is Required<br>";
+                                    flag=1;
+                                }
+                                     if($("#fathername").val()==="")
+                                    {
+                                        father="Fathername is Required<br>";
+                                        flag=1;
+                                    }
+                                            if($("#mothername").val()==="")
+                                            {
+                                                mother="Mothername is Required<br>";
+                                                flag=1;
+                                            }
+                                                if($("#datepicker").val()==="")
+                                                {
+                                                    dob=" Date Of Birth is Invalid <br>";
+                                                    flag=1;
+                                                }
+                                                    if($("#correspondance").val()==="")
+                                                    {
+                                                        corr="Correspondance Address is Required<br> ";
+                                                        flag=1;
+                                                    }
+                                                        if($("#permanent").val()==="")
+                                                        {
+                                                            per="Permanent Address is Required<br> ";
+                                                            flag=1;
+                                                        }
+                                                            if($("#mobile").val()==="")
+                                                            {
+                                                                mob="Mobile Number is Invalid<br>";
+                                                                flag=1;
+                                                                
+                                                            }
+                                                                if($("#options").val()==="")
+                                                                {
+                                                                    opt="Choose the Security Question<br>";
+                                                                    flag=1;
+                                                                }
+                                                                    if($("#hpassword").val()==="")
+                                                                    {
+                                                                        hpass="Provide Security Answer<br>";
+                                                                        flag=1;
+                                                                    }
+                                if(flag===1)
+                                {
+                                    $("#dialog").html("<center>"+user+pass+father+mother+dob+corr+per+mob+opt+hpass+"</center>");
+                                    $("#dialog").dialog("open");
+                                }
+                            else
+                            {
+                            $("#dialog").html("<center><table>"+
                             "<tr>"+
                             "<th align='left'>"+
                             "Username"+
@@ -124,14 +213,16 @@
                         );
                
                    $("#dialog").dialog("open");
-                   
+                            }
                 });
                
 	});
 	</script>
 </head>
 <body>
+  
 <center>
+    <form  id="form1">
  <div id="accordion" style="width:50%;">
      <h1><b>Personal Information</b></h1>
 	<div>
@@ -140,30 +231,37 @@
                     <table>
                         <tr>
                             <th align="left">Username</th>
-                            <td><input type="text" id="username" name="user" size="25" title="Enter username" placeholder="Username" required ></td>
+                            <td><input type="text" id="username" name="user" size="25" title="Enter username" placeholder="Username"  pattern="[A-Za-z]" required></td>
+                            <td><div id="namenotfound">Enter Your Name</div></td>
                         </tr>
                         <tr>
                             <th align="left">Password</th>
-                            <td><input type="password" id="password" name="pass" size="25" title="Enter password" placeholder="Password" required></td>
+                            <td><input type="password" id="password" name="pass" size="25" title="Enter password" placeholder="Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th align="left">Retype Password</th>
-                            <td><input type="password" id="rpassword" name="rpass" size="25" title="Enter password" placeholder="Retype Password" required></td>
+                            <td><input type="password" id="rpassword" name="rpass" size="25" title="Enter password" placeholder="Retype Password" required ></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th align="left">Father Name</th>
-                            <td><input type="text" id="fathername" name="fname" size="25" title="Enter Father name" placeholder="Father Name" required></td>
+                            <td><input type="text" id="fathername" name="fname" size="25" title="Enter Father name" placeholder="Father Name" required pattern="[A-Za-z]"></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th align="left">Mother Name</th>
-                            <td><input type="text" id="mothername" name="mname" size="25" title="Enter Mother name" placeholder="Mother Name" required></td>
+                            <td><input type="text" id="mothername" name="mname" size="25" title="Enter Mother name" placeholder="Mother Name" required pattern="[A-Za-z]"></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th align="left">Date Of Birth</th>
                             <td>
                                 <input type="text" id="datepicker"  name="DOB" size="25" title="Date Of Birth" placeholder="mm/dd/yyyy" required> 
                             </td>
+                            <td></td>
                         </tr>
+                       
                     </table>
                      
                      
@@ -178,15 +276,15 @@
                     <table>
                         <tr>
                             <th align="left">Correspondance Address</th>
-                            <td><textarea rows="5" cols="25" id="correspondance" name ="caddress" required title="Enter Corresopondance Address" placeholder="Correspondacne Address" required style="resize :none;"></textarea></td>
+                            <td><textarea rows="5" cols="25" id="correspondance" name ="caddress" required title="Enter Corresopondance Address" placeholder="Correspondacne Address"  style="resize :none;" required></textarea></td>
                         </tr>
                         <tr>
                             <th align="left">Permanent Address</th>
-                            <td><textarea rows="5" cols="25" id="permanent" name ="paddress" required title="Enter Permanent Address" placeholder="Permanent Address" required style="resize :none;"></textarea></td>
+                            <td><textarea rows="5" cols="25" id="permanent" name ="paddress" required title="Enter Permanent Address" placeholder="Permanent Address" style="resize :none;" required></textarea></td>
                         </tr>
                         <tr>
                             <th align="left">Mobile No</th>
-                            <td><input type="text" id="mobile" name="contact" size="25" title="Enter Mobile Number" required placeholder="Mobile Number"></td>
+                            <td><input type="text" id="mobile" name="contact" size="25" title="Enter Mobile Number" placeholder="Mobile Number" required></td>
                         </tr>
                     </table>
                 </center>
@@ -225,9 +323,13 @@
         
         
 </div>
-<div id="dialog" title="Basic dialog" style="width:50%; white-space: pre-wrap;">
+ </form>      
+
+    <div id="dialog" title="Basic dialog" style="width:50%; white-space: pre-wrap;">
     <center>
-       
+        <p>
+            
+        </p>
     </center>
 </div>
 </center>      
