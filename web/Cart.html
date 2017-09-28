@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+        <link href="css/front.css" rel="stylesheet" type="text/css"/>
+	<style>
+		@media only screen and (max-width:500px)
+			{
+				width:100%;
+			}
+	</style>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="ui/jquery.ui.core.js"></script>
+	<script src="ui/jquery.ui.widget.js"></script>
+	<script src="ui/jquery.ui.accordion.js"></script>
+	<link href="css/demos.css" rel="stylesheet" type="text/css"/>	
+        <script src="ui/jquery.ui.datepicker.js" type="text/javascript"></script>
+        <script src="ui/jquery.ui.dialog.js" type="text/javascript"></script>
+        
+        
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        <script>
+            $(function(){
+                
+             $( "#ProductList, #Cart" ).sortable({
+                     connectWith: ".My"
+                }).disableSelection();                                       
+            });
+            </script>
+
+    </head>
+    <body>
+    <center>
+            <div id="Main">
+               
+                 <ul id="ProductList" class="My">  
+                     
+                        <li id="item1">
+                             <p>
+                             <img src="images/Rolex.jpg" alt="Titan Image" id="items"/>
+                             <h3 class="title"><b>Rolex</b></h3><br/>
+                             </p>
+                         </li>
+                     
+                     <li id="item2">
+                             <p>
+                             <img src="images/Breitling.jpg" alt="Titan Image" id="items"/>
+                             <h3 class="title"><b>Breitling</b></h3><br/>
+                             </p>
+                         </li>
+                     
+                     <li id="item3">
+                             <p>
+                             <img src="images/Titan.jpg" alt="Titan Image" id="items"/>
+                             <h3 class="title"><b>Titan</b></h3><br/>
+                             </p>
+                         </li>
+                     
+                     <li id="item4">
+                             <p>
+                             <img src="images/GShock.jpg" alt="Titan Image" id="items"/>
+                             <h3 class="title"><b>GShock</b></h3><br/>
+                             </p>
+                         </li>
+                     
+                     <li id="item5">
+                             <p>
+                             <img src="images/Seiko.jpg" alt="Titan Image" id="items"/>
+                             <h3 class="title"><b>Seiko</b></h3><br/>
+                             </p>
+                         </li>
+                        
+                     
+                </ul> 
+                      
+                
+              <div id="Cart1"  class="ui-widget-content ui-state-default">  
+             <h4 class="ui-widget-header"><span class="ui-icon ui-icon-cart">Cart</span>Shopping Cart</h4>
+             <ul id="Cart" class="My">
+              
+              <li></li>
+              </ul>
+              </div>
+             </div>
+    </center>
+    </body>
+</html>
